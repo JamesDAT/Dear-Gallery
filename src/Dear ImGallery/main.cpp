@@ -3,6 +3,12 @@
 #include <Windows.h>
 #endif
 
+// std
+#include <memory>
+
+// project headers
+#include "Core/Window.h"
+
 #ifdef USE_WINDOWS
 int WINAPI WinMain(
     HINSTANCE hInstance,      
@@ -10,7 +16,8 @@ int WINAPI WinMain(
     LPSTR lpCmdLine,          
     int nCmdShow              
 ) {
-    MessageBox(NULL, L"Hello, World!", L"Gallery Test Box", MB_OK);
+    std::unique_ptr<Gallery::Window> pWindow(new Gallery::Window);
+    pWindow->Run();
 
     return 0;
 }
