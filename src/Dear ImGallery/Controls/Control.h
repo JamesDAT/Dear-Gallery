@@ -15,6 +15,12 @@ namespace Gallery {
 
 			ImGui_ImplGlfw_InitForOpenGL(window, true);
 			ImGui_ImplOpenGL3_Init("#version 460");
+
+			ImGui::StyleColorsLight();
+			ImGuiIO& io = ImGui::GetIO();
+			io.Fonts->Clear();
+
+			io.Fonts->AddFontFromFileTTF("fonts/OpenSans-Regular.ttf", 28.f);
 		}
 	};
 

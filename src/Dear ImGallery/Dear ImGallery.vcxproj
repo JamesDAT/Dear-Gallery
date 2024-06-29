@@ -114,6 +114,9 @@
       <AdditionalLibraryDirectories>$(SolutionDir)vendor\GLFW\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>xcopy /S /I /Y "$(SolutionDir)vendor\fonts\Include" "$(ProjectDir)fonts\" &amp;&amp; xcopy /S /I /Y "$(SolutionDir)vendor\fonts\Include" "$(OutDir)fonts\"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -135,6 +138,9 @@
       <AdditionalLibraryDirectories>$(SolutionDir)vendor\GLFW\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>xcopy /S /I /Y "$(SolutionDir)vendor\fonts\Include" "$(ProjectDir)fonts\" &amp;&amp; xcopy /S /I /Y "$(SolutionDir)vendor\fonts\Include" "$(OutDir)fonts\"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\vendor\Glad\glad.c" />
