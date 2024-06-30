@@ -158,7 +158,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controls\Control.h" />
+    <ClInclude Include="Controls\DisplayPage.h" />
     <ClInclude Include="Controls\Frame.h" />
+    <ClInclude Include="Controls\Pages\ButtonPage.h" />
+    <ClInclude Include="Controls\Pages\MainPage.h" />
     <ClInclude Include="Core\Window.h" />
     <ClInclude Include="Core\Renderer.h" />
   </ItemGroup>

@@ -65,5 +65,14 @@
     <ClInclude Include="Controls\Frame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Controls\DisplayPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Controls\Pages\ButtonPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Controls\Pages\MainPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
