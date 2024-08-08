@@ -158,7 +158,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controls\Control.h" />
+    <ClInclude Include="Controls\DisplayBox.h" />
     <ClInclude Include="Controls\DisplayPage.h" />
+    <ClInclude Include="Controls\DropDown.h" />
     <ClInclude Include="Controls\Frame.h" />
     <ClInclude Include="Controls\Pages\ButtonPage.h" />
     <ClInclude Include="Controls\Pages\MainPage.h" />

@@ -74,5 +74,11 @@
     <ClInclude Include="Controls\Pages\MainPage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Controls\DisplayBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Controls\DropDown.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

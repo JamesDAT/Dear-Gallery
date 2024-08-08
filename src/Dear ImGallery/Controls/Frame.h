@@ -26,11 +26,18 @@ namespace Gallery {
 			float stackPanelWidth = io.DisplaySize.x / 3; // a more responsive design could be used here, for instance setting a min
 			// left panel
 			{
+				if (m_UseDarkMode) {
+					ImGui::StyleColorsDark();
+				}
+				else {
+					ImGui::StyleColorsLight();
+				}
 				ImGui::SetNextWindowSize(io.DisplaySize);
 				ImGui::SetNextWindowPos({ 0,0 });
 				ImGui::Begin("Primary Panel", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 
 				ImGui::BeginChild("Navigation Panel", ImVec2(stackPanelWidth, 0), true);
+				ImGui::Checkbox("Use Darkmode", &m_UseDarkMode);
 				m_MenuItemSize.x = stackPanelWidth;
 				RenderTree();
 				ImGui::EndChild();
@@ -51,15 +58,19 @@ namespace Gallery {
 	private:
 		ImVec2 m_MenuItemSize{200.f,50.f};
 		std::unique_ptr<DisplayPage> m_DisplayPage;
+		bool m_UseDarkMode = false;
 
 		void RenderTree() {
 			if (RenderSelectable("Home")) {
-				m_DisplayPage = std::unique_ptr<MainPage>(new MainPage());
+				m_DisplayPage = std::make_unique<MainPage>();
 			}
 
-			if (ImGui::TreeNode("Input")) {
+			if (ImGui::TreeNode("Basic Input")) {
 				if (RenderSelectable("Button")) {
-					m_DisplayPage = std::unique_ptr<ButtonPage>(new ButtonPage());
+					m_DisplayPage = std::make_unique<ButtonPage>();
+				}
+				if (RenderSelectable("Checkbox")) {
+
 				}
 
 				ImGui::TreePop();
@@ -68,9 +79,9 @@ namespace Gallery {
 
 		bool RenderSelectable(const std::string& buttonText) {
 			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0, 0, 0, 0));
-			ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0, 0, 0, 0.1));
-			ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0, 0, 0, 0.2));
-			ImGui::PushStyleVar(ImGuiStyleVar_ButtonTextAlign, ImVec2(0, .25));
+			ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0, 0, 0, 0.1f));
+			ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0, 0, 0, 0.2f));
+			ImGui::PushStyleVar(ImGuiStyleVar_ButtonTextAlign, ImVec2(0, .25f));
 			bool pressed = ImGui::Button(buttonText.data(), m_MenuItemSize);
 			ImGui::PopStyleColor(3);
 			ImGui::PopStyleVar();
